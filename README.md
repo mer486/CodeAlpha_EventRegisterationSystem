@@ -42,3 +42,19 @@ Postman (API testing)
 dotenv (environment configuration)
 
 GitHub for version control
+
+📌 Future Improvements
+
+✅ Event filtering & search
+
+✅ Email notifications after registration
+
+✅ Payment gateway integration
+
+✅ Deploy on Render/Netlify
+
+👨‍💻 Author
+
+Developed by Merola Gerges
+
+📌 Part of my internship at CodeAlpha
