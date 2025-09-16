@@ -100,6 +100,23 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error cancelling registration', error });
   }
+
+
+
+// Get registrations by email
+router.get("/:email", async (req, res) => {
+  try {
+    const { email } = req.params;
+    const registrations = await Registration.find({ email }).populate("event");
+    res.json(registrations);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching registrations" });
+  }
+});
+
+module.exports = router;
+
+
 });
 
 module.exports = router;

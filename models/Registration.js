@@ -1,22 +1,29 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const registrationSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+const registrationSchema = new mongoose.Schema(
+  {
+    event: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Event",
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      lowercase: true,
+    },
+    registeredAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  event: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Event',
-    required: true
-  },
-  registeredAt: {
-    type: Date,
-    default: Date.now
-  }
-});
+  { timestamps: true }
+);
 
-const Registration = mongoose.model('Registration', registrationSchema);
-
-module.exports = Registration;
+module.exports = mongoose.model("Registration", registrationSchema);
